@@ -52,9 +52,15 @@ public class PessoaController {
 	@GetMapping("/editarpessoa/{idpessoa}")
 	public ModelAndView editar(@PathVariable("idpessoa") Long idpessoa) {		
 		Optional<Pessoa> pessoa = pessoaRepository.findById(idpessoa);
-		ModelAndView andView = new ModelAndView("cadastro/cadastropessoa");
-		andView.addObject("pessoaobj", pessoa.get());
+		ModelAndView andView = new ModelAndView("cadastro/cadastro");
+		andView.addObject("pessoaobj", new Pessoa());
 		return andView;
+	}
+	
+	@GetMapping("/excluirpessoa/{idpessoa}")
+	public ModelAndView excluir(@PathVariable("idpessoa") Long idpessoa) {
+		pessoaRepository.deleteById(idpessoa);
+		return pessoas();
 	}
 		
 }

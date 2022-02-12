@@ -42,8 +42,10 @@
 				<td th:text="${pessoa.nome}"></td>
 				<td th:text="${pessoa.email}"></td>
 				<td th:text="${pessoa.idade}"></td>
-				<td><a th:href="@{/editarpessoa/{idpessoa}(idpessoa=${pessoa.id})}" class="btn btn-danger"><img src="img/edit2.png" width="28"></a></td>
-				<td><a th:href="@{/excluirpessoa/{idpessoa}(idpessoa=${pessoa.id})}" class="btn btn-danger"><img src="img/delete3.png" width="28"></a></td>
+				<td><a th:href="@{/editarpessoa/{idpessoa}(idpessoa=${pessoa.id})}" class="btn btn-warning">
+					<img src="./resources/templates/cadastro/img/edit2.png" width="28"></a></td>
+				<td><a onclick="return confirm('Deseja excluir?')" th:href="@{/excluirpessoa/{idpessoa}(idpessoa=${pessoa.id})}" class="btn btn-danger">
+					<img src="img/delete3.png" width="28"></a></td>
 			</tr>
 		</tbody>
 	</table>
